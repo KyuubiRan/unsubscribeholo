@@ -77,7 +77,7 @@ object Main {
             SESSDATA = nextLine()
         } while (SESSDATA.length != 32.also { if (SESSDATA.length != 32) println("SESSDATA不正确!请检查后重新输入") })
         do {
-            println("请粘贴您的bili_jct")
+            println("请粘贴您的bili_jct:")
             csrf = nextLine()
         } while (csrf.length != 32.also { if (csrf.length != 32) println("bili_jct不正确!请检查后重新输入") })
 
