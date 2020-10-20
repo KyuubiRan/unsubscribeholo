@@ -72,14 +72,11 @@ object Main {
         println("欢迎使用一键取关脚本")
         println("本脚本需要先获取SESSDATA和bili_jct才能执行取关")
         println("如果你不知道怎么获取请看readme.md")
+        //获取SESSDATA
         do {
             println("请粘贴您的SESSDATA:")
             SESSDATA = nextLine()
         } while (SESSDATA.length != 32.also { if (SESSDATA.length != 32) println("SESSDATA不正确!请检查后重新输入") })
-        do {
-            println("请粘贴您的bili_jct:")
-            csrf = nextLine()
-        } while (csrf.length != 32.also { if (csrf.length != 32) println("bili_jct不正确!请检查后重新输入") })
 
         //获取账号信息
         val getUserRequest = Request.Builder()
@@ -98,6 +95,13 @@ object Main {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
+        //获取csrf
+        do {
+            println("请粘贴您的bili_jct:")
+            csrf = nextLine()
+        } while (csrf.length != 32.also { if (csrf.length != 32) println("bili_jct不正确!请检查后重新输入") })
+
         //取关
         println("正在执行取关操作...")
         thread {
