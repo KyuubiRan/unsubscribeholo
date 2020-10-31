@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.lang.Exception
 import kotlin.concurrent.thread
+import kotlin.system.exitProcess
 
 const val API = "https://api.bilibili.com/"
 
@@ -26,7 +27,9 @@ object Main {
         "赤井心" to 339567211,
         "亚绮-罗森" to 389857131,
         //2期生
-        "湊-阿库娅" to 375504219,
+        //洋葱 我的洋葱
+        //如果还是要取关请自行解除吧...
+//        "湊-阿库娅" to 375504219,
         "紫咲诗音" to 389857640,
         "百鬼绫目" to 389858027,
         "癒月巧可" to 389858754,
@@ -93,7 +96,9 @@ object Main {
                 println("代码:${getUserResponse.code}")
             }
         } catch (e: Exception) {
+            println("发生错误!请检查SESSDATA是否正确!!")
             e.printStackTrace()
+            exitProcess(-1)
         }
 
         //获取csrf
@@ -128,14 +133,15 @@ object Main {
                     }
                     Thread.sleep(200)
                 } catch (e: Exception) {
+                    println("发生错误!请检查bili_jct是否正确!!")
                     e.printStackTrace()
+                    exitProcess(-1)
                 }
             }
             println("取关操作已完成")
             println("很喜欢蛆的一句话:FUCK U AND NEVER COME BACK")
             println("祝HOLOLIVE早日倒闭")
         }
-
     }
 }
 
